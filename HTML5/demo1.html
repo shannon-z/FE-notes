@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<body>
+<!-- <canvas id="mycanvas" width="400px" height="400px" style="border:1px solid grey">
+your broswer doesn`t support the canvas element.
+</canvas> -->
+
+<div>
+    <div style="width:400px;height:200px;border:1px solid grey" ondragover="dragover(event)" ondrop="drop(event)">
+        <p id="text" draggable="true" ondragstart="dragstart(event)">
+            hello world !
+        </p>
+    </div>
+    
+    <div id='target'  ondragover="dragover(event)" ondrop="drop(event)" style="width:400px;height:200px;border:1px solid grey">
+            <!-- <button onclick="this.style.display='none'">
+                    Remove Me!
+                  </button> -->
+    </div>
+
+    <div>
+        <p id="text2">hhhhhh</p>
+        <input type="button" value='click me ' id="myBtn">
+    </div>
+
+    <div>
+            <p id="info">123</p>
+            <p>E-mail: <input type="text" id="email" name="email"></p>
+            <p>Name: <input type="text" id="name" name="name"></p>
+            <p>Age: <input type="text" id="age" name="age"></p>
+    </div>
+</div>
+
+
+
+</body>
+<script>
+    // function dragstart(e){
+    //     e.dataTransfer.setData('obj', e.target.id);
+    // }
+
+    // function dragover(e){
+    //     e.preventDefault();
+    // }
+
+    // function drop(e){
+    //     e.preventDefault();
+    //     var data = e.dataTransfer.getData('obj');
+    //     e.target.appendChild(document.getElementById(data));
+    // }
+
+
+    // let c = document.getElementById('mycanvas');
+    // let context = c.getContext('2d');
+    // context.fillStyle = '#eeeeee';
+    // context.moveTo(10,10);
+    // context.lineTo(150,50);
+    // context.lineTo(10,50);
+    // context.lineTo(10,10);
+    // context.stroke();
+    
+    // context.fillStyle = '#eeee0e';
+    // context.fillRect(10,90,120,30);
+    
+
+//     var car = {
+//         make: "Lamborghini",
+        
+//         fullName: function (cars) {
+//             cars.forEach((vehicle) => {
+//                 console.log(vehicle + " " + this.model);
+//             })
+//         }
+// }
+// let model = "Huracán";
+// car.fullName(['lambo', 'ferrari', 'porsche']);
+
+
+// var x = 1;
+// function foo () {
+//     let x = 2;
+//     console.log(this);
+//     return function(){ console.log(this); return x; }
+// }
+
+// var res = foo;
+// res();
+// console.log(res);
+
+
+// function hi(){  
+//   var a = 1;  
+//   return function(){
+//    console.log(a++);
+//   };  
+// };         
+// var aaa = hi();
+// var bbb = hi;
+// aaa();
+// aaa();
+// bbb();
+// var size = 10;
+// function myclick(size){
+//     return function(){document.getElementById('text2').style.fontSize = size + 'px';
+//     size++;}
+// }
+// var click = myclick(size);
+// document.getElementById('myBtn').onclick = click;
+
+// function showContent(content){
+//         document.getElementById('info').innerHTML = content;
+//     };
+
+//     function setContent(){
+//         var infoArr = [
+//             {'id':'email','content':'your email address'},
+//             {'id':'name','content':'your name'},
+//             {'id':'age','content':'your age'}
+//         ];
+//         for (var i = 0; i < infoArr.length; i++) {
+//             let item = infoArr[i];
+//                 document.getElementById(item.id).onfocus = function(){
+//                     showContent(item.content)
+//                 }
+            
+//         }
+//     }
+//     setContent();
+
+    
+
+// function showContent(content){
+//         document.getElementById('info').innerHTML = content;
+//     };
+
+
+//     function setContent(){
+//         var infoArr = [
+//             {'id':'email','content':'your email address'},
+//             {'id':'name','content':'your name'},
+//             {'id':'age','content':'your age'}
+//         ];
+//         for (var i = 0; i < infoArr.length; i++) {
+//             var item = infoArr[i];
+//             document.getElementById(item.id).onfocus = (function(item){
+//                 console.log(item);
+//                 return function(){
+//                     console.log(item);
+//                     showContent(item);
+//                 }
+//             })(item.content)
+//         }
+//     }
+//     setContent()
+
+
+// for (let i = 0; i < 10; i++) { setTimeout(()=>console.log("i:",i), 1000); }
+var str = '9 Gbps';
+var right = str.split(' ')[1];
+var left = parseFloat(str.split(' ')[0]);
+if(right === 'bps'){
+    console.log(left);
+}else if(right === 'Kbps'){
+    var integer = left.toString().split('.')[0];
+    var temp = left.toString().split('.')[1];
+    if(temp.length < 3){
+        let j = 3-temp.length;
+        let s = ''
+        for(let i=0;i<j;i++){
+            s += '0';
+        }
+        console.log(integer+temp+s);
+    }else{
+        console.log(integer+temp.slice(0,3)+'.'+temp.slice(3));
+    }
+}else if(right === 'Mbps'){
+    var integer = left.toString().split('.')[0];
+    var temp = left.toString().split('.')[1];
+    if(temp.length < 6){
+        let j = 6-temp.length;
+        let s = ''
+        for(let i=0;i<j;i++){
+            s += '0';
+        }
+        console.log(integer+temp+s);
+    }else{
+        console.log(integer+temp.slice(0,6)+'.'+temp.slice(6));
+    }
+}else if(right === 'Gbps'){
+    var integer = left.toString().split('.')[0];
+    var temp = left.toString().split('.')[1];
+    if(temp.length < 9){
+        let j = 9-temp.length;
+        let s = ''
+        for(let i=0;i<j;i++){
+            s += '0';
+        }
+        console.log(integer+temp+s);
+    }else{
+        console.log(integer+temp.slice(0,9)+'.'+temp.slice(9));
+    }
+}else if(right === 'Tbps'){
+    var integer = left.toString().split('.')[0];
+    var temp = left.toString().split('.')[1];
+    if(temp.length < 12){
+        let j = 12-temp.length;
+        let s = ''
+        for(let i=0;i<j;i++){
+            s += '0';
+        }
+        console.log(integer+temp);
+    }else{
+        console.log(integer+temp.slice(0,12)+'.'+temp.slice(12));
+    }
+}
+
+console.log(right);
+
+</script>
+</html>
